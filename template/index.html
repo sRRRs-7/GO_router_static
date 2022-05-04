@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>{{ .Title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script async src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+
+<body class="container">
+    <!--Embed the menu.html -->
+    {{ template "menu.html" . }}
+
+
+    <!--Embed the header.html -->
+    {{ template "header.html" .}}
+
+    <!-- article list -->
+    {{range .payload}}
+
+    <a href="/article/{{.ID}}">
+        <h1>{{.Title}}</h1>
+    </a>
+    <p>{{.Content}}</p>
+
+    {{end}}
+
+    <!--Embed the footer.html -->
+    {{ template "footer.html" .}}
+
+</body>
+
+</html>
